@@ -57,16 +57,17 @@ app.get('/list/restaurants/:id', (req, res) => {
     const id = req.params.id;
     knex('info')
         .where({ id })
-        .then(info => {
-            info = info[0];
-            knex('foods')
-                .where('codeRestaurant', info.codeRestaurant)
-                .then(foods => res.send({
-                    info,
-                    foods
-                }))
-                .catch(err => console.log(err));
-        })
+        // .then(info => {
+        //     info = info[0];
+        //     knex('foods')
+        //         .where('codeRestaurant', info.codeRestaurant)
+        //         .then(foods => res.send({
+        //             info,
+        //             foods
+        //         }))
+        //         .catch(err => console.log(err));
+        // })
+        .then(data => res.send(data))
         .catch(err => console.log(err));
 });
 

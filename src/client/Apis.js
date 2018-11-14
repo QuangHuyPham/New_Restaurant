@@ -12,6 +12,6 @@ export function getRestaurants() {
 // Get chi tiết nhà hàng
 export function getRestaurant(id) {
   request.get('/list/restaurants/' + id)
-    .then(res => store.dispatch(RestaurantDetailsActions.set(res.body)))
+    .then(res => store.dispatch(RestaurantDetailsActions.set(id, res.body)))
     .catch(err => console.log(err));
 }

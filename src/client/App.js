@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Home from './components/Home';
 import Restaurants from './components/Restaurants';
-import RestaurantDetail from './reducers/RestaurantDetail';
+import RestaurantDetail from './components/RestaurantDetail';
 
 export default class App extends Component {
   constructor(props) {
