@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './app.css';
+import Home from './components/Home';
+import Restaurants from './components/Restaurants';
+import RestaurantDetail from './reducers/RestaurantDetail';
 
 export default class App extends Component {
-  state = { username: null };
-
-  componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+  constructor(props) {
+    super(props);
+    this.state = ({
+    });
   }
 
   render() {
     return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/restaurants" component={Restaurants}/>
+          <Route exact path="/restaurants/:id" component={RestaurantDetail}/>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

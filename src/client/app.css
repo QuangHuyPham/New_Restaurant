@@ -6,3 +6,17 @@ body {
   text-align: center;
   margin: auto;
 }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 70%;
+  margin: 0px 15%
+}
+
+a {
+  text-decoration: none;
+}

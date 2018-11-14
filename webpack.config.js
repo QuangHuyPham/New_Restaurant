@@ -1,6 +1,6 @@
 const path = require('path');
 
-const outputDirectory = 'dist';
+const outputDirectory = 'public';
 
 module.exports = {
   entry: './src/client/index.js',
@@ -27,11 +27,8 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new CleanWebpackPlugin([outputDirectory]),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      favicon: './public/favicon.ico'
-    })
-  ]
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000
+  }
 };
