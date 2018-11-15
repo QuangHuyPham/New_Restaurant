@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getRestaurant } from '../Apis';
 
@@ -8,24 +8,24 @@ class Restaurants extends Component {
     componentWillMount() {
         getRestaurant(this.props.restaurantId);
     }
-
     render() {
-        console.log(this.props.restaurantId);
-        console.log(this.props);
-        if (!this.props.restaurantDetails) return <div>Loading...</div>;
+        const restaurantDetail = this.props.restaurantDetail;
+        console.log(restaurantDetail);
+        if (!this.props.restaurantDetail) return <div>Loading...</div>;
         return (
             <div>
-                <h1>Kikai</h1>
+                <h2>{", " + restaurantDetail}</h2>
             </div>
         );
     }
 }
-
 function mapStateToProps(state, ownProps) {
     const restaurantId = ownProps.match.params.id;
+    // const data = "a: "+ state._root.entries;
+    // console.log(data);
     return {
         restaurantId,
-        restaurantDetails: state.getIn(['restaurantDetails', restaurantId])
+        restaurantDetail: state.getIn(['restaurantDetail', restaurantId])
     };
 }
 export default connect(mapStateToProps)(Restaurants);

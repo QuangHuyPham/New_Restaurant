@@ -5,7 +5,7 @@ const actionTypes = createActionTypes([
     'SET_RESTAURANTS_DETAILS'
 ]);
 
-// Dispatch (mapDispatchToProps)
+// Định nghĩa Dispatch (mapDispatchToProps)
 export const actionCreators = {
     set(restaurantId, details) {
         return {
@@ -15,7 +15,7 @@ export const actionCreators = {
     }
 };
 
-// Thêm dữ liệu cho action
+// Định nghĩa Reducer SET_RESTAURANTS
 const actionsMap = {
     [actionTypes.SET_RESTAURANTS_DETAILS]: (state, action) =>
         state.set(action.restaurantId, Immutable.Map(action.details))
