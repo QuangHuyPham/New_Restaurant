@@ -13,9 +13,7 @@ export function getRestaurants() {
 export function getRestaurant(id) {
   request.get('/list/restaurants/' + id)
     .then(res => {
-      const details = res.body[0];
-      console.log(details);
-      store.dispatch(RestaurantDetailsActions.set(id, details));
+      store.dispatch(RestaurantDetailsActions.set(id, res.body));
     })
     .catch(err => console.log(err));
 }

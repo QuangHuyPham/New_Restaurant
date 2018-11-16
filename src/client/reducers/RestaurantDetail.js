@@ -18,6 +18,6 @@ export const actionCreators = {
 // Định nghĩa Reducer SET_RESTAURANTS
 const actionsMap = {
     [actionTypes.SET_RESTAURANTS_DETAILS]: (state, action) =>
-        state.set(action.restaurantId, Immutable.Map(action.details))
+        state.set(action.restaurantId, Immutable.fromJS(action.details))
 };
 export default actionsMapToReducer(Immutable.Map(), actionsMap);
