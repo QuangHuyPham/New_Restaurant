@@ -11,7 +11,6 @@ class Restaurants extends Component {
     render() {
         const restaurantDetail = this.props.restaurantDetail;
         console.log(restaurantDetail);
-        if (!this.props.restaurantDetail) return <div>Loading...</div>;
         return (
             <div>
                 <h2>{", " + restaurantDetail}</h2>
@@ -21,8 +20,6 @@ class Restaurants extends Component {
 }
 function mapStateToProps(state, ownProps) {
     const restaurantId = ownProps.match.params.id;
-    // const data = "a: "+ state._root.entries;
-    // console.log(data);
     return {
         restaurantId,
         restaurantDetail: state.getIn(['restaurantDetail', restaurantId])
